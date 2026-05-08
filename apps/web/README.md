@@ -1,36 +1,137 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/create-next-app).
+# Mossfund
+
+**Fund the code that runs the world.**
+
+Mossfund is a community-owned OSS funding DAO on Solana. Stakers use quadratic voting to allocate real-time streaming payments (via Streamflow) to open-source repos. Maintainers submit proof-of-work dashboards. Everything is transparent and on-chain.
+
+## Features
+
+- **Quadratic Voting**: Democratic funding allocation where voting power scales with the square root of tokens staked
+- **Real-time Streaming**: Per-second USDC payments to maintainers via Streamflow SDK
+- **Proof of Work**: On-chain verification of GitHub activity and contributions
+- **Transparent Treasury**: All funding flows visible and auditable on Solana
+- **Epoch-based Governance**: Regular funding cycles with community-driven allocation
+
+## Tech Stack
+
+- **Next.js 16** with Turbopack
+- **Tailwind CSS v4** for styling
+- **GSAP** for scroll-triggered animations
+- **Framer Motion** for interactive UI animations
+- **TypeScript** for type safety
+- **Solana** blockchain (Anchor/Rust programs)
+- **Streamflow SDK** for token streaming
+- **Helius** for real-time event indexing
+
+## Typography
+
+The site uses SF Pro Display font family:
+- **SoproDisplayBold** (`font-display`) - Hero headings and section numbers
+- **SoproDisplayMedium** (`font-heading`) - Section headings and card titles
+- **SoproDisplayRegular** (`font-body`) - Body text, labels, and UI elements
+
+## Color Palette
+
+```css
+--background: #F4F1EC      /* Warm off-white parchment */
+--foreground: #1A1A18      /* Near-black */
+--muted: #8A8880           /* Muted warm gray */
+--accent: #3B7A5E          /* Deep forest green - primary CTA */
+--accent-light: #EAF5EF    /* Soft green tint for cards */
+--stream: #1D6FA8          /* Streamflow blue */
+--border: #D8D4CC          /* Warm gray border */
+--card-bg: #FFFFFF         /* Pure white for cards */
+```
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 20+ or compatible runtime
+- pnpm package manager
+
+### Installation
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+# Install dependencies
+pnpm install
+
+# Run development server
 pnpm dev
-# or
-bun dev
+
+# Build for production
+pnpm build
+
+# Start production server
+pnpm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load Inter, a custom Google Font.
+```
+├── app/
+│   ├── globals.css          # Global styles and theme
+│   ├── layout.tsx           # Root layout with metadata
+│   └── page.tsx             # Main landing page
+├── components/
+│   ├── Nav.tsx              # Fixed navigation header
+│   ├── Hero.tsx             # Hero section with live ticker
+│   ├── ProblemStatement.tsx # OSS funding problem overview
+│   ├── HowItWorks.tsx       # Three primitives explanation
+│   ├── BentoGrid.tsx        # Live data dashboard
+│   ├── ProofOfWork.tsx      # PoW verification system
+│   ├── TechStack.tsx        # Technology overview
+│   ├── CTA.tsx              # Call-to-action section
+│   ├── Footer.tsx           # Footer with slide-up animation
+│   └── Container.tsx        # Consistent padding wrapper
+├── lib/
+│   └── constants.ts         # Fake data and configuration
+└── public/
+    └── fonts/               # SF Pro Display font files
+```
 
-## Learn More
+## Animation System
 
-To learn more about Next.js, take a look at the following resources:
+### GSAP (ScrollTrigger)
+- Stat card reveals
+- Vote bar width animations
+- Treasury segment animations
+- Metric counter animations
+- Hero word stagger
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Framer Motion
+- Card hover states
+- Bento grid item entrances
+- Navigation indicator slide
+- Footer slide-up reveal
+- CTA fade-in
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### CSS Animations
+- Live stream pulse indicators
+- Flowing stream particles
 
-## Deploy on Vercel
+## Design Principles
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. **Light mode only** - Warm, approachable aesthetic
+2. **No dark mode** - Consistent brand experience
+3. **Scroll-triggered reveals** - Progressive disclosure
+4. **Real-time data** - Live tickers and counters
+5. **Transparent data** - All metrics visible and verifiable
+6. **Responsive design** - Mobile-first approach (375px → 1280px+)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Notes
+
+- All illustrative data in `lib/constants.ts` should be replaced with live on-chain data
+- Font files are already included in `/public/fonts`
+- GSAP and Framer Motion are dynamically imported to avoid SSR issues
+- Custom font utilities are defined in `@layer utilities` for Tailwind v4 compatibility
+
+## License
+
+MIT License
+
+---
+
+**Not financial advice.** This is a demonstration landing page for an OSS funding DAO concept.

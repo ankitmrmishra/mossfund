@@ -1,0 +1,16 @@
+{
+  "name": "Mossfund - Fund the code that runs the world",
+  "short_name": "Mossfund",
+  "description": "Community-owned OSS funding DAO on Solana",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F4F1EC",
+  "theme_color": "#3B7A5E",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ]
+}
